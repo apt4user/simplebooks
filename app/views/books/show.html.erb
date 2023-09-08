@@ -6,7 +6,13 @@
     <%= link_to "Show this comment", comment %>
   </p>
 <% end %>
-<%= render "add_new_comment" %>
+<% if user_signed_in? %>
+  <%= render "add_new_comment" %>
+<% else %>
+  <div>
+    <h2>Bitte einloggen um Kommentar zu verfassen</h2>
+  </div>
+<% end %>
 <div>
   <%= link_to "Edit this book", edit_book_path(@book) %> |
   <%= link_to "Zu den Subkategorien", subcategories_path %>
