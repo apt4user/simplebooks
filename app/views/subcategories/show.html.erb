@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<h1>Sach- und Fachbücher</h1>
+<div class="items">
+  <% @stored_books.each do |stored_book| %>
+    <%= render stored_book %>
+    <p>
+      <%= link_to "Buch ansehen", stored_book %>
+    </p>
+  <% end %>
+  <div class="navbar_items">
+    <%= link_to "Zu den Subkategorien", subcategories_path %>
+  </div>
+  <%= render "add_new_book" %>
+  <%= link_to "Edit this subcategory", edit_subcategory_path(@subcategory) %>
+  <%= button_to "Destroy this subcategory", @subcategory, method: :delete %>

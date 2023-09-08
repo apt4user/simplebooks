@@ -1,0 +1,26 @@
+<aside>
+  <div class=cart>
+    <h1>Warenkorb</h1>
+    <p style="color: green"><%= notice %></p>
+    <% @items.each do |item| %>
+      <p>
+        <strong>Buchtitel:</strong>
+        <%= item.book.book_title %>
+      </p>
+      <p>
+        <strong>Menge:</strong>
+        <%= item.quantity %>
+      </p>
+      <p>
+        <strong>Preis:</strong>
+        <%= item.book.book_price %>
+      </p>
+      <%= form_with(url: carts_remove_path) do |f| %>
+        <%= f.hidden_field :id, value: item.id%>
+        <%= f.submit "Artikel entfernen"%>
+      <% end %>
+      <strong>Summe gesamt: </strong>
+      <%=item.total%>
+    <% end %>
+  </div>
+</aside>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<%= render @book %>
+<% @comments.each do |comment| %>
+  <%= render comment %>
+  <p>
+    <%= link_to "Show this comment", comment %>
+  </p>
+<% end %>
+<%= render "add_new_comment" %>
+<div>
+  <%= link_to "Edit this book", edit_book_path(@book) %> |
+  <%= link_to "Zu den Subkategorien", subcategories_path %>
+  <%= button_to "Destroy this book", @book, method: :delete %>
+</div>

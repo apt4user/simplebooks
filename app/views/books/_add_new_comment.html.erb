@@ -1,0 +1,17 @@
+<main>
+  <article>
+    <h2>Kommentar hinzufügen: </h2>
+    <%= form_with(model: [@book, @new_comment], local: true ) do |form|%>
+      <div class="field">
+        <%= form.label :comment_title %>
+        <%= form.text_field :comment_title %>
+        <br>
+        <%= form.label :comment_message %>
+        <%= form.text_field :comment_message %>
+      </div>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </article>
+</main>

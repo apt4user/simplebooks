@@ -1,0 +1,14 @@
+<h2>Buch zum Shop hinzufügen: </h2>
+<%= form_with(model: [@subcategory], local: true ) do |form|%>
+  <div class="field">
+    <%= form.hidden_field :category_id, value: @category.id %>
+    <%= form.label :subcategory_topic %>
+    <%= form.text_field :subcategory_topic %>
+    <br>
+    <%= form.label :subcategory_description %>
+    <%= form.text_field :subcategory_description %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
