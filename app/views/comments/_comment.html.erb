@@ -3,11 +3,15 @@
     <div id="<%= dom_id comment %>">
       <h2>Kommentare</h2>
       <p>
-        <strong>Comment title:</strong>
+        <strong>User:</strong>
+        <%= comment.comment_user %>
+      </p>
+      <p>
+        <strong>Titel:</strong>
         <%= comment.comment_title %>
       </p>
       <p>
-        <strong>Comment message:</strong>
+        <strong>Bewertung:</strong>
         <%= comment.comment_message %>
       </p>
     </div>
