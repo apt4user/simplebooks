@@ -6,7 +6,7 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.text :book_description
       t.float :book_price
 
-      t.references :subcategory, null: true, foreign_key: true
+      t.references :subcategory, null: false, foreign_key: true
 
       t.timestamps
     end

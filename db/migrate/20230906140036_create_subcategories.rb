@@ -4,7 +4,7 @@ class CreateSubcategories < ActiveRecord::Migration[7.0]
       t.string :subcategory_topic
       t.string :subcategory_description
 
-      t.references :category, null: true, foreign_key: true
+      t.references :category, null: false, foreign_key: true
 
       t.timestamps
     end

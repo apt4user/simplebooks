@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_223240) do
     t.text "book_isbn"
     t.text "book_description"
     t.float "book_price"
-    t.integer "subcategory_id"
+    t.integer "subcategory_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subcategory_id"], name: "index_books_on_subcategory_id"
