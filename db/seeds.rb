@@ -43,8 +43,8 @@ authors = Author.create([
 ])
 
 books = Book.create([
-  { book_title: "Final Fantasy VII Remake", book_isbn: "1646091779", book_description: "Final Fantasy VII Buch", book_price: 20, subcategory_id: subcategories[0].id },
   { book_title: "Fliegende Fetzen", book_isbn: "3442456398", book_description: "Scheibenwelt-Roman", book_price: 5, subcategory_id: subcategories[0].id },
+  { book_title: "Final Fantasy VII Remake", book_isbn: "1646091779", book_description: "Final Fantasy VII Buch", book_price: 20, subcategory_id: subcategories[0].id },
   { book_title: "Physik", book_isbn: "3868943633", book_description: "Lehrbuch Physik", book_price: 90, subcategory_id: subcategories[1].id },
   { book_title: "Physik", book_isbn: "3662679353", book_description: "Lehrbuch Physik", book_price: 95, subcategory_id: subcategories[1].id },
   { book_title: "Physikalische Chemie", book_isbn: "3527345507", book_description: "Lehrbuch Physikalische Chemie", book_price: 70, subcategory_id: subcategories[2].id },
