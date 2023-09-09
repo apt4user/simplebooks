@@ -7,11 +7,11 @@ class CategoriesController < ApplicationController
   end
 
   def index_novels
-    @categories = [Category.find_by(category_designator: "novel")]
+    @categories = Category.select {|i| i.category_designator == 'novel'}
   end
 
   def index_nonfictions
-    @categories = [Category.find_by(category_designator: "nonfiction")]
+    @categories = Category.select {|i| i.category_designator == 'nonfiction'}
   end
 
   # GET /categories/1 or /categories/1.json
