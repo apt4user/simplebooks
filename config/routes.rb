@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+  get "categories/index_novels"
+  get "categories/index_nonfictions"
   resources :comments
   resources :subcategories
   resources :categories
   resources :authors
   resources :pictures
-  post 'carts/add'
-  post 'carts/remove'
+  post "carts/add"
+  post "carts/remove"
   resources :books
   devise_for :users
-  
+
   resources :books do
     resources :comments
   end
