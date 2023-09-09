@@ -6,6 +6,14 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def index_novels
+    @categories = [Category.find_by(category_designator: "novel")]
+  end
+
+  def index_nonfictions
+    @categories = [Category.find_by(category_designator: "nonfiction")]
+  end
+
   # GET /categories/1 or /categories/1.json
   def show
     @book_subcategories = Subcategory.all.joins("join categories
@@ -69,6 +77,6 @@ class CategoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def category_params
-    params.require(:category).permit(:category_name, :category_description)
+    params.require(:category).permit(:category_name, :category_description, :category_designator)
   end
 end
