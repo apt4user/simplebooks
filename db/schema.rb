@@ -12,8 +12,8 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_06_223240) do
   create_table "author_books", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "author_id"
+    t.integer "book_id", null: false
+    t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_author_books_on_author_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_223240) do
   create_table "categories", force: :cascade do |t|
     t.text "category_name"
     t.text "category_description"
+    t.string "category_designator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_223240) do
 
   create_table "pictures", force: :cascade do |t|
     t.text "path"
-    t.integer "book_id"
+    t.integer "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_pictures_on_book_id"
@@ -83,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_223240) do
   create_table "subcategories", force: :cascade do |t|
     t.string "subcategory_topic"
     t.string "subcategory_description"
-    t.integer "category_id"
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_subcategories_on_category_id"

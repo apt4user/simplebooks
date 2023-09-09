@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration[7.0]
     create_table :categories do |t|
       t.text :category_name
       t.text :category_description
-      
+      t.string :category_designator
       t.timestamps
     end
   end
