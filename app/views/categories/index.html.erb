@@ -5,4 +5,6 @@
     <%= link_to category.category_name, category %>
   <% end %>
 </div>
-<%= link_to "New category", new_category_path %>
+<% if user_signed_in? && current_user == "admin@test.info" %>
+  <%= link_to "New category", new_category_path %>
+<% end %>

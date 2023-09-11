@@ -1,14 +1,19 @@
-<h2>Buch zum Shop hinzufügen: </h2>
-<%= form_with(model: [@subcategory], local: true ) do |form|%>
-  <div class="field">
-    <%= form.hidden_field :category_id, value: @category.id %>
-    <%= form.label :subcategory_topic %>
-    <%= form.text_field :subcategory_topic %>
-    <br>
-    <%= form.label :subcategory_description %>
-    <%= form.text_field :subcategory_description %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<% if user_signed_in? && current_user == "admin@test.info" %>
+  <h2>Buch zum Shop hinzufügen: </h2>
+  <%= form_with(model: [@subcategory], local: true ) do |form|%>
+    <div class="field">
+      <%= form.hidden_field :category_id, value: @category.id %>
+      <%= form.label :subcategory_topic %>
+      <%= form.text_field :subcategory_topic %>
+      <br>
+      <%= form.label :subcategory_description %>
+      <%= form.text_field :subcategory_description %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  <%= link_to "Subkategorie editieren", edit_subcategory_path(@category) %>
+  <%= link_to "Zurück zu den Hauptkategorien", categories_path %>
+  <%= button_to "Subkategorie löschen", @subcategory, method: :delete %>
 <% end %>

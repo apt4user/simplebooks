@@ -1,19 +1,21 @@
-<main>
-  <article>
-    <h2>Kommentar hinzufügen: </h2>
-    <%= form_with(model: [@book, @new_comment], local: true ) do |form|%>
-      <div class="field">
-        <%= form.hidden_field :comment_user, value: current_user.email %>
-        <br>
-        <%= form.label :comment_title %>
-        <%= form.text_field :comment_title %>
-        <br>
-        <%= form.label :comment_message %>
-        <%= form.text_field :comment_message %>
-      </div>
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-    <% end %>
-  </article>
-</main>
+<% if user_signed_in? && current_user == "admin@test.info" %>
+  <main>
+    <article>
+      <h2>Kommentar hinzufügen: </h2>
+      <%= form_with(model: [@book, @new_comment], local: true ) do |form|%>
+        <div class="field">
+          <%= form.hidden_field :comment_user, value: current_user.email %>
+          <br>
+          <%= form.label :comment_title %>
+          <%= form.text_field :comment_title %>
+          <br>
+          <%= form.label :comment_message %>
+          <%= form.text_field :comment_message %>
+        </div>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </article>
+  </main>
+<% end %>
