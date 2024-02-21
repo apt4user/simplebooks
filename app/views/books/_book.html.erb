@@ -1,0 +1,35 @@
+<div id="<%= dom_id book %>">
+  <main>
+    <article>
+      <p>
+        <strong>Book's name:</strong>
+        <%= book.book_title %>
+      </p>
+      <p>
+        <strong>Authors's name:</strong>
+        <%= @authors_members[book.id-1].author_name %>
+      </p>
+      <p>
+        <strong>ISBN:</strong>
+        <%= book.book_isbn %>
+      </p>
+      <p>
+        <strong>Book's description:</strong>
+        <%= book.book_description %>
+      </p>
+      <p>
+        <strong>Price:</strong>
+        <%= book.book_price %>
+      </p>
+      <%= form_with(url: carts_add_path) do |f| %>
+        <%= f.hidden_field :id, value: book.id%>
+        <%= f.number_field :quantity, value: 1, min: 1 %>
+        <% if user_signed_in? %>
+          <%= f.submit "Zum Warenkorb hinzufügen"%>
+        <% else %>
+          <p> Bitte einloggen um Buch zum Warenkorb hinzuzufügen </p>
+        <% end %>
+      <% end %>
+    </main>
+  </article>
+</div>

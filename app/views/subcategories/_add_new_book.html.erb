@@ -1,0 +1,25 @@
+<h2>Buch zum Shop hinzufügen: </h2>
+<%= form_with(model: @new_book, local: true ) do |form|%>
+  <div class="field">
+    <%= form.hidden_field :subcategory_id, value: @subcategory.id %>
+    <%= form.fields_for :authors do |author_model| %>
+      <%= author_model.label :author_name, style: "display: block" %>
+      <%= author_model.text_field :author_name %>
+    <% end %>
+    <br>
+    <%= form.label :book_title %>
+    <%= form.text_field :book_title %>
+    <br>
+    <%= form.label :book_isbn %>
+    <%= form.text_field :book_isbn %>
+    <br>
+    <%= form.label :book_description %>
+    <%= form.text_field :book_description %>
+    <br>
+    <%= form.label :book_price %>
+    <%= form.text_field :book_price %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+<div class="navbar_items">
+  <% @book_subcategories.each do |subcategory| %>
+    <%= link_to subcategory.subcategory_topic, subcategory %>
+  <% end %>
+  <%= link_to "Zur Hauptkategorie", categories_path %>
+</div>
+<%= render "add_new_subcategory" %>
+<%= link_to "Edit this subcategory", edit_subcategory_path(@category) %>
+<%= link_to "Back to categories", categories_path %>
+<%= button_to "Destroy this subcategory", @subcategory, method: :delete %>

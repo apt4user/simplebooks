@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SimpleBooks</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="dropdown">
+          <button class="dropbtn">Bücher</button>
+          <div class="dropdown-content">
+            <%= link_to "Romane", "#" %>
+            <%= link_to "Sachbücher", "/categories" %>
+          </div>
+        </div>
+        <a href="/">Startseite</a>
+        <a href="#news">News</a>
+        <% unless user_signed_in? %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% else %>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+        </div>
+        <div> Welcome <%= current_user.email %> </div>
+      <% end %>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render "carts/cart" %>
+    <%= yield %>
+  </body>
+</html>

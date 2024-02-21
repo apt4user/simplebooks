@@ -1,0 +1,8 @@
+<p style="color: green"><%= notice %></p>
+<h1>Hauptkategorien</h1>
+<div class="navbar_items">
+  <% @categories.each do |category| %>
+    <%= link_to category.category_name, category %>
+  <% end %>
+</div>
+<%= link_to "New category", new_category_path %>
